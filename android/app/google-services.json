@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "704571466208",
+    "project_id": "movil2022a-5d701",
+    "storage_bucket": "movil2022a-5d701.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704571466208:android:9f0e738be1cdf6e83fcb85",
+        "android_client_info": {
+          "package_name": "com.movilalexvacca.movil2022a"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704571466208-6tk4mevugrqbfp09uhcccd41tv538lii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEsgNDPzY9s_WpokcahEXEOdUC79X713k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704571466208-6tk4mevugrqbfp09uhcccd41tv538lii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
