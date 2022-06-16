@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:movil2022a/ui/pages/authentication/login/login_screen.dart';
 import 'package:movil2022a/ui/pages/content/content_page.dart';
 
+import 'pages/authentication/user_final/user_final.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/auth': (context) => Login(),
         '/content': (context) => Principal(),
+        '/usercomplete': (context) => AgregarCatalogoTI(),
       },
       home: Login(),
     );

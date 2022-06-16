@@ -84,6 +84,7 @@ class Controllerauth extends GetxController {
     Future<SharedPreferences> _localuser = SharedPreferences.getInstance();
     final SharedPreferences localuser = await _localuser;
     localuser.setString('email', datos);
+
     localuser.setString('pass', pass);
     print(localuser.getString('usuario'));
   }
