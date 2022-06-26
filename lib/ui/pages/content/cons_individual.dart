@@ -51,8 +51,9 @@ class _ConsIndividualState extends State<ConsIndividual> {
             ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    controlconsultas.consultarUsuario(controluser.uid);
-                    controlNombre.text = controlconsultas.getUser![0].nombre;
+                    controlconsultas.consultarUsuario(controluser.uid).then(
+                        (value) => controlNombre.text =
+                            controlconsultas.getUser![0].nombre);
                   });
                 },
                 child: Text('Consultar'))

@@ -8,36 +8,41 @@ class ConsGeneral extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ConsultasController consultaControl = Get.find();
+    consultaControl.consultarGral().then((value) => null);
     return Scaffold(
       appBar: AppBar(title: Text('Consulta General')),
-      body: Obx(() => ListView.builder(
-          itemCount: consultaControl.getUser!.length == 0
-              ? 0
-              : consultaControl.getUser!.length,
-          itemBuilder: (context, posicion) {
-            return ListTile(
-              leading: Container(
-                padding: EdgeInsets.all(5),
-                width: 50,
-                height: 50,
-                child: Image.network(consultaControl.getUser![posicion].foto),
-              ),
-              title: Text(consultaControl.getUser![posicion].nombre),
-              subtitle: Text(consultaControl.getUser![posicion].apellido),
-              trailing: Container(
-                width: 80,
-                height: 40,
-                color: Colors.yellow,
-                child: Text(consultaControl.getUser![posicion].telefono),
-              ),
-            );
-          })),
+      body: Obx(
+        () => ListView.builder(
+            itemCount: consultaControl.getUserGral!.length == 0
+                ? 0
+                : consultaControl.getUserGral!.length,
+            itemBuilder: (context, posicion) {
+              return ListTile(
+                leading: Container(
+                  padding: EdgeInsets.all(5),
+                  width: 50,
+                  height: 50,
+                  child: Image.network(
+                      consultaControl.getUserGral![posicion].foto),
+                ),
+                title: Text(consultaControl.getUserGral![posicion].nombre),
+                subtitle: Text(consultaControl.getUserGral![posicion].apellido),
+                trailing: Container(
+                  width: 80,
+                  height: 40,
+                  color: Colors.yellow,
+                  child: Text(consultaControl.getUserGral![posicion].telefono),
+                ),
+              );
+            }),
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          consultaControl.consultaGeneral();
+        onPressed: () async {
+          consultaControl.consultarGral().then((value) => null);
         },
         child: Icon(Icons.update),
       ),
     );
+    ;
   }
 }

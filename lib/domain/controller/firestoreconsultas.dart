@@ -8,6 +8,7 @@ class ConsultasController extends GetxController {
 // se instancia la base de datos
   static final FirebaseFirestore _db = FirebaseFirestore.instance;
   Rxn<List<Usuarios>> _userFirestore = Rxn<List<Usuarios>>();
+  Rxn<List<Usuarios>> _userFirestoreGral = Rxn<List<Usuarios>>();
 
 //Consulta individual
   Stream consultaIndividual(String idBusqueda) {
@@ -47,6 +48,7 @@ class ConsultasController extends GetxController {
 
 //extraer los datos
   List<Usuarios>? get getUser => _userFirestore.value;
+  List<Usuarios>? get getUserGral => _userFirestoreGral.value;
 
 //Consultar los datos
   Future<void> consultarUsuario(String idBusqueda) async {
@@ -72,15 +74,8 @@ class ConsultasController extends GetxController {
 
         _lista.add(Usuarios.fromMap(doc.data()));
       }
-      _userFirestore.value = _lista;
+      _userFirestoreGral.value = _lista;
       log(_lista.toString());
     });
-  }
-
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-    consultaGeneral();
   }
 }
