@@ -2,6 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:movil2022a/domain/controller/firestoreconsultas.dart';
 import 'package:movil2022a/ui/app.dart';
 
 import 'domain/controller/authentications.dart';
@@ -11,6 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Get.put(Controllerauth());
+  Get.put(ConsultasController());
 
   ConnectivityController connectivityController =
       Get.put(ConnectivityController());

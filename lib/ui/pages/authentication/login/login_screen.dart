@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:movil2022a/domain/controller/authentications.dart';
 import 'package:movil2022a/domain/controller/connectivity.dart';
+import 'package:movil2022a/domain/controller/firestoreconsultas.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
@@ -17,6 +18,7 @@ class _LoginState extends State<Login> {
   TextEditingController passwuser = TextEditingController();
 
   Controllerauth controluser = Get.find();
+  ConsultasController controlConsulta = Get.find();
   late ConnectivityController connectivityController;
 
   @override
@@ -42,6 +44,10 @@ class _LoginState extends State<Login> {
     }
   }
 
+  _usuarioIndividual(iduser) async {
+    await controlConsulta.consultarUsuario(iduser);
+  }
+
   _login(theEmail, thePassword) async {
     print('_login $theEmail $thePassword');
     try {
@@ -49,7 +55,8 @@ class _LoginState extends State<Login> {
       //  Get.to(() => ListaMensajes());
       // Get.to(() => ListaMensajeros2(title: 'Titulo'));
       if (controluser.emailf != 'Sin Registro') {
-        Get.offNamed('/usercomplete');
+        Get.offNamed('/content');
+        _usuarioIndividual(controluser.uid);
       } else {
         Get.snackbar(
           "Login",
@@ -76,7 +83,7 @@ class _LoginState extends State<Login> {
       //  Get.to(() => ListaMensajes());
       //Get.to(() => ListaMensajeros2(title: 'Titulo'));
       if (controluser.emailf != 'Sin Registro') {
-        Get.offNamed('/usercomplete');
+        Get.offNamed('/content');
       } else {
         Get.snackbar(
           "Login",

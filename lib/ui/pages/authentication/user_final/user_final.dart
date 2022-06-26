@@ -13,6 +13,7 @@ class AgregarCatalogoTI extends StatefulWidget {
 
 class _AgregarCatalogoTIState extends State<AgregarCatalogoTI> {
   Controllerauth controluser = Get.find();
+
   TextEditingController controlNombre = TextEditingController();
   TextEditingController controlApellido = TextEditingController();
   TextEditingController controlDireccion = TextEditingController();
